@@ -1,6 +1,6 @@
 <template>
-    <upper-header />
-    <lower-header />
+    <upper-header class="upper" />
+    <lower-header class="lower" />
    <router-view/>
 </template>
 
@@ -31,5 +31,6 @@ html, body{
   padding: 0;
   height: 100%;
 }
+ 
 
 </style>

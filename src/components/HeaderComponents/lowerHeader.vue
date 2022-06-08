@@ -1,14 +1,24 @@
 <template>
-  <div id="lowerHeaderComp" >
-    <div class="menu" v-show="isMobile() " :class="{ active :isActive }" @click="isActive = !isActive"     >
+  <div id="lowerHeaderComp">
+    <div  v-show="isMobile()" class="Mobile" :class="{ active: isActive } ">
       <Icon
+        @click="isActive = !isActive"
         icon="ant-design:menu-fold-outlined"
         width="40"
-   
       />
- <drop-down-comp  :items="services" class="menu-slide"/>
+      <div class="menu-slide">
+              <ul class="mobileUl">
+        <li>Home</li>
+        <li @click="showDeopService = !showDeopService">Services</li>
+        <drop-down-comp :items="services" v-if="showDeopService" />
+        <li @click="showDeopAbout = !showDeopAbout">About us</li>
+        <drop-down-comp :items="aboutUs" v-if="showDeopAbout" />
+        <li>Contact Us</li>
+      </ul>
+      </div>
+
     </div>
-         
+
     <nav v-show="!isMobile()">
       <ul>
         <li>Home</li>
@@ -38,7 +48,7 @@
 
 <script>
 import { Icon } from "@iconify/vue";
-import DropDownComp from "../DropDownComp.vue";
+import DropDownComp from "../_helperComponents/DropDownComp.vue";
 export default {
   name: "lowerHeader",
   components: {
@@ -50,6 +60,8 @@ export default {
       isOpen: false,
       about: false,
       isActive: false,
+      showDeopService: false,
+      showDeopAbout: false,
       services: [
         { title: "Transport", router: "signup" },
         { title: "Logistics", router: "signup" },
@@ -75,14 +87,11 @@ export default {
 
 <style scoped>
 #lowerHeaderComp {
-  height: 10%;
+  height: 5%;
   background-color: #f1f1f1;
   display: flex;
   flex-direction: column;
 }
-
-
-
 
 li {
   display: inline;
@@ -112,24 +121,35 @@ li {
 @media screen and (max-width: 768px) {
   #lowerHeaderComp {
     height: 5%;
+    
   }
-  .menu {
-    display: flex;
-    justify-content: flex-start;
+
+
+  .active {
+    transform: translateX(200px);
     transition: all 1s ease-out;
-    background-color: rebeccapurple;
-    /*  */
   }
 
-  .active  {
-
-transform: translateX(200px);
-transition: all 1s ease-out;
-
+  .menu-slide {
+    transform: translateX(-200px);
+  background-color: #b5c8ec91 ;
+  position: absolute;
+  }
+  .mobileUl{
+    display: grid;
+    list-style-type: none;
+  }
+  .Mobile{
+      transition: all 1s ease-out;
+  }
+.mobileUl li {
+  padding-top: 10%;
+  white-space: nowrap;
+  margin: 5px;
 }
 
-.menu-slide{
-  transform: translateX(-200px);  
+li:active {
+  background-color: #001847;
 }
 }
 </style>

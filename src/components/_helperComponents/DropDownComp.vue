@@ -21,7 +21,9 @@ export default {
 
 
 <style scoped>
-
+#DropDownComp{
+  position: absolute;
+}
 
 .user-btn {
   font-family: "Montserrat", sans-serif;
