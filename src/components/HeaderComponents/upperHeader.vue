@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import DropDownComp from "../DropDownComp.vue";
+import DropDownComp from "../_helperComponents/DropDownComp.vue";
 import { Icon } from "@iconify/vue";
 
 export default {
