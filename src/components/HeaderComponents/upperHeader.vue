@@ -79,7 +79,7 @@ export default {
 <style scoped>
 #upperHeaderComp {
   background-color: #293e51;
-  height: 18%;
+  height: 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -99,6 +99,7 @@ li {
   display: flex;
   align-items: center;
   margin-right: 3%;
+  z-index: 9;
 }
 .icon {
   padding: 10px;

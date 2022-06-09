@@ -8,13 +8,27 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'aboutVue',
+    path: '/signUp',
+    name: 'signUp',
+    meta: {
+      allowAnonymous: true
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    component: () => import(/* webpackChunkName: "about" */ '../views/signUp.vue')
+  },
+  {
+    path: '/login',
+    name: 'logIn',
+    meta: {
+      allowAnonymous: true
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/signIn.vue')
+  },
 ]
 
 const router = createRouter({

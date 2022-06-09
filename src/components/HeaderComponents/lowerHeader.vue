@@ -1,18 +1,22 @@
 <template>
-  <div id="lowerHeaderComp">
-    <div  v-show="isMobile()" class="Mobile" :class="{ active: isActive } ">
+  <div id="lowerHeaderComp" >
+    <div  v-show="isMobile()" class="Mobile" :class="{ active: isActive }  ">
       <Icon
-        @click="isActive = !isActive"
+        @click="isActive = !isActive ; "
+       :class="{ rotate: isActive }  "
         icon="ant-design:menu-fold-outlined"
         width="40"
+        class="burger-icon"
+         color="white" 
+          :rotate="1"
       />
       <div class="menu-slide">
               <ul class="mobileUl">
         <li>Home</li>
-        <li @click="showDeopService = !showDeopService">Services</li>
-        <drop-down-comp :items="services" v-if="showDeopService" />
-        <li @click="showDeopAbout = !showDeopAbout">About us</li>
-        <drop-down-comp :items="aboutUs" v-if="showDeopAbout" />
+        <li @click="showDeopService = !showDeopService" style="color:#001847">Services <Icon icon="bx:down-arrow-alt"  /></li>
+        <drop-down-comp :items="services" v-if="showDeopService && isActive" />
+        <li @click="showDeopAbout = !showDeopAbout" style="color:#001847">About us <Icon icon="bx:down-arrow-alt" /></li>
+        <drop-down-comp :items="aboutUs" v-if="showDeopAbout  && isActive" />
         <li>Contact Us</li>
       </ul>
       </div>
@@ -81,6 +85,10 @@ export default {
         return false;
       }
     },
+    // closingFunc(isActive){
+
+    // }
+   
   },
 };
 </script>
@@ -88,9 +96,11 @@ export default {
 <style scoped>
 #lowerHeaderComp {
   height: 5%;
-  background-color: #f1f1f1;
+  background-color: #b5c8ec91;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  
 }
 
 li {
@@ -121,26 +131,44 @@ li {
 @media screen and (max-width: 768px) {
   #lowerHeaderComp {
     height: 5%;
-    
+    position: relative;
+    z-index: 8;
   }
+
 
 
   .active {
-    transform: translateX(200px);
+    transform: translateY(600px);
     transition: all 1s ease-out;
+    background-color: #001847a4;
+
+
+
   }
 
+  .rotate{
+transform: rotate(-90deg);
+    transition: all 1s ease-out;
+  }
   .menu-slide {
-    transform: translateX(-200px);
-  background-color: #b5c8ec91 ;
+    transform: translateY(-600px);
+  background-color: #b5c8ecd7 ;
   position: absolute;
+  display: flex;
+    justify-content:center;
+    width: 100%;
+        overflow: hidden
+
   }
   .mobileUl{
     display: grid;
     list-style-type: none;
+    padding-top: 10px;
   }
   .Mobile{
       transition: all 1s ease-out;
+      display: flex;
+      justify-content: flex-end;
   }
 .mobileUl li {
   padding-top: 10%;
@@ -151,5 +179,9 @@ li {
 li:active {
   background-color: #001847;
 }
+.burger-icon{
+  z-index: 9;
+}
+
 }
 </style>
