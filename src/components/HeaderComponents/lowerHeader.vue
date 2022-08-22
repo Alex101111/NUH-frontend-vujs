@@ -44,7 +44,7 @@
           class="about"
           @mouseleave="about = !about"
         />
-        <li>Get quote</li>
+        <li><router-link to= "/getquote" style="text-decoration: none ; color: #4f4f4f;"> get quote </router-link></li>
       </ul>
     </nav>
   </div>

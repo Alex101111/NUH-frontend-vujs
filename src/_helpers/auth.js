@@ -3,7 +3,7 @@ import decode from 'jwt-decode'
 import axios from 'axios'
 
 
-// const REST_ENDPOINT = 'http://localhost:8000/'
+axios.defaults.baseURL = 'http://betaversion.nuhlogistics.com/'
 const AUTH_TOKEN_KEY = 'token'
 
 

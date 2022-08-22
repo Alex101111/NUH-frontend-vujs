@@ -9,13 +9,28 @@
         {{ item.title }}
       </router-link>
     </li>
+       <li  class="user-btn" v-show ="UserIsLogged()" @click="logOut">log out</li>
   </div>
+
 </template>
 
 <script>
+import {  clearAuthToken, isLoggedIn } from '@/_helpers/auth'
 export default {
   name: "DropDownComp",
   props: ["items"],
+    methods: {
+   UserIsLogged(){
+     if (isLoggedIn()){
+       return true
+     }
+   },
+   logOut(){
+     clearAuthToken()
+     this.$router.go({name:'home'})
+   }
+
+  },
 };
 </script>
 

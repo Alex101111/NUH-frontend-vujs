@@ -391,7 +391,7 @@ export default {
   methods:{
     async submitUser(){
    
-      await  axios.post("http://localhost:8000/signup ",this.user)
+      await  axios.post("signup",this.user)
         .then(Response =>{
             console.log(Response.data);
         }).catch(error =>{
