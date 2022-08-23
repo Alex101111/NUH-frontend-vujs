@@ -702,6 +702,7 @@
 
 <script>
 import {isLoggedIn} from '@/_helpers/auth';
+import { useToast } from 'vue-toastification'
 import axios from "axios";
 export default {
  name: "get_quote",
@@ -721,24 +722,24 @@ export default {
   }),
   methods: {
     async submitQuote() {
-      console.log({ axios });
+    const toast = useToast();
       if (!isLoggedIn()) {
         this.$router.push("/login");
       } else {
         await axios
-          .post("http://betaversion.nuhlogistics.com/set-quote", this.quote)
+          .post("set-quote ", this.quote)
           .then((Response) => {
-            console.log("sth");
-            console.log(Response.data);
-          })
-          .catch((error) => {
-            console.log(error.Response.data);
+      
+      if(Response.data.error_messages){
+        toast(Response.data.error_messages.danger[0])
+      }else{
+              toast(Response.data)
+              }
           })
           .finally(() => {
             this.isLoading = false;
           });
 
-        console.log(this.user);
       }
     },
   },

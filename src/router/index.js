@@ -1,6 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import {isLoggedIn } from '@/_helpers/auth'
 import HomeView from '../views/HomeView.vue'
+import axios from 'axios'
+
+
+// creating function to set and an auth header at every command that the app makes 
+(function() {
+  var token = localStorage.getItem('token')
+ if (token) {
+     axios.defaults.headers.common['Authorization'] = "Bearer " + token;
+ } else {
+     delete axios.defaults.headers.common['Authorization'] ;
+
+ }
+})();
 
 const routes = [
   {
@@ -29,6 +42,33 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Auth/signIn.vue')
+  },
+  {
+    path: '/resetlink',
+    name: 'ResetLink',
+
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Auth/ResetPassword.vue')
+  },
+  {
+    path: '/Password-reset',
+    name: 'PasswordReset',
+
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Auth/ReinstallPassword.vue')
+  },
+  {
+    path: '/userstatus',
+    name: 'userStatus',
+
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/UserStatus.vue')
   },
 
   {

@@ -25,7 +25,7 @@
 
     <nav v-show="!isMobile()">
       <ul>
-        <li>Home</li>
+        <li> <router-link  to="/" style="text-decoration: none ; color: #4f4f4f;">Home</router-link></li>
         <li @mouseover="isOpen = !isOpen">
           Services <Icon icon="bx:down-arrow-alt" />
         </li>

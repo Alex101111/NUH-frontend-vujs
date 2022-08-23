@@ -29,6 +29,7 @@
     </form>
     <div id="create-account-wrap">
       <p>Not a member? <a href="#">Create Account</a></p>
+      <p>Forgot Your Password? <a href="/resetlink">Reset Password</a></p>
     </div>
     <!--create-account-wrap-->
   </div>

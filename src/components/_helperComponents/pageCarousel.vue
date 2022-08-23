@@ -4,13 +4,15 @@
       <div class="slogan"><h1>TIME IS MONEY WE SAVE YOU BOTH</h1></div>
     </div>
     <div class="tracking-container">
+      <form method="post" @submit.prevent="$store.dispatch('track',this.user)">
       <h2>Tracking informations</h2>
-      <input type="text" placeholder="Enter your tracking number" />
-      <input type="text" placeholder="enter your surname" />
+      <input type="text" placeholder="Enter your tracking number" v-model="user.tracking_number"  />
+      <input type="text" placeholder="enter your surname" v-model="user.surname" />
       <div class="button-line">
         <h6>Error msg</h6>
-        <button>check status</button>
+        <button type="submit">check status</button>
       </div>
+      </form>
     </div>
     <swiper
       :autoplay="{ delay: 3000 }"
@@ -58,6 +60,16 @@ import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 export default {
   name: "pageCarousel",
+  
+    data() {
+    return {
+      user: {
+        tracking_number: "",
+        surname: "",
+      },
+      status: {},
+    };
+  },
   components: {
     Swiper,
     SwiperSlide,
