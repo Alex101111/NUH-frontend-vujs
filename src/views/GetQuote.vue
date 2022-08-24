@@ -87,7 +87,7 @@
           name="commentary"
           id="commentary"
           rows="3"
-          v-model="quote.comment"
+          v-model="quote.commentary"
         ></textarea>
       </div>
       <br />

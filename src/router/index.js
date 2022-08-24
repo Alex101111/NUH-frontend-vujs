@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import {isLoggedIn } from '@/_helpers/auth'
+import {isLoggedIn, isAdmin } from '@/_helpers/auth'
 import HomeView from '../views/HomeView.vue'
 import axios from 'axios'
 
@@ -64,11 +64,50 @@ const routes = [
   {
     path: '/userstatus',
     name: 'userStatus',
-
+   
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/UserStatus.vue')
+  },
+  {
+    path: '/admin',
+    name: 'PasswordReset',
+    meta: {
+      requiresAuth: true,
+      requireAdmin: true
+
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Admin/AdminDashboard.vue')
+  },
+  {
+    path: '/admin/command-controller',
+    name: 'OrderController',
+    meta: {
+      requiresAuth: true,
+      requireAdmin: true
+
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Admin/OrderController.vue')
+  },
+  {
+    path: '/admin/command-controller/{orderId}',
+    name: 'OneOrderController',
+    meta: {
+      requiresAuth: true,
+      requireAdmin: true
+
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Admin/OneOrderController.vue')
   },
 
   {
@@ -76,25 +115,26 @@ const routes = [
     path: '/getquote',
     name: 'get_quote',
     meta: {
-      allowAnonymous: true,
+      requiresAuth: true
+
     },
     // },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/GetQuote.vue'),
-    beforeEnter(to, from, next) {
+    // beforeEnter(to, from, next) {
      
-      if (!isLoggedIn()) {
-        next({
-          path: '/login',
-          query: { redirect: to.fullPath }
-        })
-      } else {
+    //   if (!isLoggedIn()) {
+    //     next({
+    //       path: '/login',
+    //       query: { redirect: to.fullPath }
+    //     })
+    //   } else {
 
-        next()
-      }
-    }
+    //     next()
+    //   }
+    // }
 
 
   },
@@ -116,6 +156,33 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+
+
+
+router.beforeEach((to) => {
+  // instead of having to check every route record with
+  // to.matched.some(record => record.meta.requiresAuth)
+  if (to.meta.requiresAuth && !isLoggedIn()) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    return {
+      path: '/login',
+      // save the location we were at to come back later
+      query: { redirect: to.fullPath },
+    }
+  }
+
+  if (to.meta.requireAdmin && !isAdmin()) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    return {
+      path: '/login',
+      // save the location we were at to come back later
+      query: { redirect: to.fullPath },
+    }
+  }
 })
 
 export default router
