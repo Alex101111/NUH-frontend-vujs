@@ -1,7 +1,7 @@
 
 
 <template>
-  <div>
+  <div class="container">
     <table class="table table-hover ">
       <thead>
         <tr>
@@ -11,7 +11,7 @@
           <th scope="col">Transport Type</th>
           <th scope="col">Departure</th>
           <th scope="col">Destination</th>
-          <th scope="col">User Comment</th>
+          <th scope="col">Status</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +26,7 @@
           <td>{{ info.transport_type }}</td>
           <td>{{ info.departure }}</td>
           <td>{{ info.destination }}</td>
-          <td>{{ info.commentary }}</td>
+          <td>{{ info.commande_status }}</td>
         </tr>
       </tbody>
     </table>

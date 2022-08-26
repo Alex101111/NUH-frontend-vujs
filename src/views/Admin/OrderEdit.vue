@@ -61,11 +61,21 @@
               </p>
             </div>
           </div>
-
-          <div class="mt-5 text-center">
-            <button class="btn btn-primary profile-button" type="button">
-              Save Order
-            </button>
+          <div class="row mt-2">
+            <div class="mt-5 text-center col-md-4">
+              <button
+                class="btn btn-primary profile-button"
+                type="button"
+                @click="editOrder()"
+              >
+                Edit Order
+              </button>
+            </div>
+            <div class="mt-5 text-center col-md-4">
+              <button class="btn btn-primary profile-button" type="button"  @click="CancelOrder()">
+                Cancel Edit
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -207,10 +217,21 @@
 
 <script>
 import axios from "axios";
+import { useToast } from 'vue-toastification'
 export default {
   name: "OrderEdit",
   data: () => ({
-    order: {},
+    order: {
+      transport_type: "",
+      length: "",
+      height: "",
+      width: "",
+      net_weight: "",
+      gross_weight: "",
+      commande_status: "",
+      commande_comment: "",
+      commentary: "",
+    },
     user: {},
   }),
 
@@ -224,6 +245,27 @@ export default {
     const getInfos = await axios.get("admin/orders/" + orderId);
     this.order = getInfos.data;
     console.log(this.user);
+  },
+
+  methods: {
+    editOrder() {
+               const toast = useToast();
+      const { orderId } = this.$route.params;
+      axios.put("admin/orders/edit/" + orderId, this.order).then((Response) => {
+ if(Response.data.error_messages){
+            toast(Response.data.error_messages.danger[0])
+          }else{
+            toast(Response.data[0])
+            this.$router.push({name: 'OneOrderController', params: { orderId: orderId }})
+
+          }
+        });
+    },
+
+    CancelOrder(){
+      const { orderId } = this.$route.params;
+      this.$router.push({name: 'OneOrderController', params: { orderId: orderId }})
+    }
   },
 };
 </script>
