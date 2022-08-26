@@ -1,8 +1,39 @@
 
 
 <template>
+  <div>
+    <table class="table table-hover ">
+      <thead>
+        <tr>
+
+          <th scope="col">Name</th>
+          <th scope="col">Surname</th>
+          <th scope="col">Transport Type</th>
+          <th scope="col">Departure</th>
+          <th scope="col">Destination</th>
+          <th scope="col">User Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="info in infos"
+          :key="info.id_commande"
+          @click="gotToDetails(info.id_commande, info.id_user)"
+        >
+
+          <td>{{ info.name }}</td>
+          <td>{{ info.surname }}</td>
+          <td>{{ info.transport_type }}</td>
+          <td>{{ info.departure }}</td>
+          <td>{{ info.destination }}</td>
+          <td>{{ info.commentary }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<!-- 
   <div class="users-list">
-    <h1>List of Users</h1>
+    <h1>List of Orders</h1>
     <div class="container">
       <div class="upper">
         <div>Name</div>
@@ -15,18 +46,16 @@
         class="lower"
         v-for="info in infos"
         :key="info.id_commande"
-        @click="gotToDetails(info.id_commande,info.id_user)"
-        
+        @click="gotToDetails(info.id_commande, info.id_user)"
       >
         <div>{{ info.name }}</div>
         <div>{{ info.surname }}</div>
         <div>{{ info.transport_type }}</div>
         <div>{{ info.departure }}</div>
         <div>{{ info.destination }}</div>
-
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -34,24 +63,24 @@ import axios from "axios";
 
 export default {
   name: "OrderController",
-    components: {
+  components: {},
+  methods: {
+    gotToDetails(infoId, id_user) {
+      this.$store.dispatch("getUser", id_user);
 
-  },
-    methods: {
-      gotToDetails(infoId,id_user) {
-      
-  this.$store.dispatch('getUser',id_user)
-
-        this.$router.push({
+      this.$router
+        .push({
           name: "OneOrderController",
           params: { orderId: infoId },
-        }).then(res=>{
-       console.log(res)
- }).catch(error=>{
-       console.log(error)
- });
-      },
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
+  },
   data: () => ({
     infos: [],
   }),
@@ -63,12 +92,12 @@ export default {
 </script>
 
  <style scoped>
- a{
+a {
   white-space: nowrap;
   align-self: center;
   margin: 10px;
- }
- h1 {
+}
+h1 {
   text-align: center;
   font-size: 35px;
 }
@@ -118,7 +147,9 @@ export default {
     display: flex;
     flex-direction: column;
     align-content: space-around;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   }
   .lower {
     height: fit-content;

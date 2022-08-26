@@ -729,7 +729,7 @@ export default {
         await axios
           .post("set-quote ", this.quote)
           .then((Response) => {
-      
+      console.log(Response.data)
       if(Response.data.error_messages){
         toast(Response.data.error_messages.danger[0])
       }else{

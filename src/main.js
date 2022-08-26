@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
 
 createApp(App).use(Toast, {
     transition: "Vue-Toastification__bounce",
