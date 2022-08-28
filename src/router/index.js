@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import {isLoggedIn, isAdmin } from '@/_helpers/auth'
 import HomeView from '../views/HomeView.vue'
 import axios from 'axios'
-
+import { useToast } from 'vue-toastification'
 
 // creating function to set and an auth header at every command that the app makes 
 (function() {
@@ -123,6 +123,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Admin/OrderEdit.vue')
   },
 
+  
   {
 
     path: '/getquote',
@@ -154,6 +155,93 @@ const routes = [
 
 
   {
+
+    path: '/transport',
+    name: 'TransportComp',
+    meta: {
+      requiresAuth: false
+
+    },
+    // },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/ServiceViews/transportComp.vue'),
+    // beforeEnter(to, from, next) {
+     
+    //   if (!isLoggedIn()) {
+    //     next({
+    //       path: '/login',
+    //       query: { redirect: to.fullPath }
+    //     })
+    //   } else {
+
+    //     next()
+    //   }
+    // }
+
+
+  },
+  {
+
+    path: '/logistics',
+    name: 'LogisticsComp',
+    meta: {
+      requiresAuth: false
+
+    },
+    // },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/ServiceViews/logisticsComp.vue'),
+    // beforeEnter(to, from, next) {
+     
+    //   if (!isLoggedIn()) {
+    //     next({
+    //       path: '/login',
+    //       query: { redirect: to.fullPath }
+    //     })
+    //   } else {
+
+    //     next()
+    //   }
+    // }
+
+
+  },
+  {
+
+    path: '/aboutus',
+    name: 'AboutUs',
+    meta: {
+      requiresAuth: false
+
+    },
+    // },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Aboutusview.vue'),
+    // beforeEnter(to, from, next) {
+     
+    //   if (!isLoggedIn()) {
+    //     next({
+    //       path: '/login',
+    //       query: { redirect: to.fullPath }
+    //     })
+    //   } else {
+
+    //     next()
+    //   }
+    // }
+
+
+  },
+  
+
+
+  {
     path: '/test',
     name: 'MoadlComp',
     meta: {
@@ -178,6 +266,9 @@ router.beforeEach((to) => {
   // instead of having to check every route record with
   // to.matched.some(record => record.meta.requiresAuth)
   if (to.meta.requiresAuth && !isLoggedIn()) {
+
+    const toast = useToast();
+    toast('Please login in Order to access this page')
     // this route requires auth, check if logged in
     // if not, redirect to login page.
     return {
@@ -185,9 +276,13 @@ router.beforeEach((to) => {
       // save the location we were at to come back later
       query: { redirect: to.fullPath },
     }
+
   }
 
   if (to.meta.requireAdmin && !isAdmin()) {
+
+    const toast = useToast();
+    toast('You need to be an admin in Order to access this page')
     // this route requires auth, check if logged in
     // if not, redirect to login page.
     return {

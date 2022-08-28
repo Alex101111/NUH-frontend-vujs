@@ -15,8 +15,7 @@
         <li>Home</li>
         <li @click="showDeopService = !showDeopService" style="color:#001847">Services <Icon icon="bx:down-arrow-alt"  /></li>
         <drop-down-comp :items="services" v-if="showDeopService && isActive" />
-        <li @click="showDeopAbout = !showDeopAbout" style="color:#001847">About us <Icon icon="bx:down-arrow-alt" /></li>
-        <drop-down-comp :items="aboutUs" v-if="showDeopAbout  && isActive" />
+        <li tyle="color:#001847">About us </li>
         <li>Contact Us</li>
       </ul>
       </div>
@@ -35,15 +34,11 @@
           class="service"
           @mouseleave="isOpen = !isOpen"
         />
-        <li @mouseover="about = !about">
-          About us <Icon icon="bx:down-arrow-alt" />
+        <li>
+          <router-link to="/aboutus" style="text-decoration: none ; color: #4f4f4f;"> About us  </router-link>
+         
         </li>
-        <drop-down-comp
-          :items="aboutUs"
-          v-if="about"
-          class="about"
-          @mouseleave="about = !about"
-        />
+
         <li><router-link to= "/getquote" style="text-decoration: none ; color: #4f4f4f;"> get quote </router-link></li>
       </ul>
     </nav>
@@ -67,14 +62,10 @@ export default {
       showDeopService: false,
       showDeopAbout: false,
       services: [
-        { title: "Transport", router: "signup" },
-        { title: "Logistics", router: "signup" },
+        { title: "Transport", router: "transport" },
+        { title: "Logistics", router: "logistics" },
       ],
-      aboutUs: [
-        { title: "Who are we", router: "signup" },
-        { title: "Our staff", router: "signup" },
-        { title: "Our blog", router: "blog" },
-      ],
+
     };
   },
   methods: {

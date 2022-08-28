@@ -17,6 +17,7 @@
 </div>
 
         <form action="" method="post" @submit.prevent="submitQuote">
+                <label for="Transport-type">Transport Type : </label>
       <select
         name="transport_type"
         class="form-select"
@@ -91,18 +92,19 @@
         ></textarea>
       </div>
       <br />
+            <label for="country">Select Container Type</label>
       <select
         name="container_type"
         class="form-select"
         aria-label="Default select example"
         v-model="quote.container_type"
       >
-        <option selected>Select Container type</option>
+        <option selected disabled hidden>Select Container type</option>
         <option value="dry">dry</option>
         <option value="reefer">reefer</option>
       </select>
       <br />
-      <label for="country">Country</label
+      <label for="country">Departure</label
       ><span style="color: red !important; display: inline; float: none"
         >*</span
       >
@@ -110,7 +112,7 @@
       <select
         id="country"
         name="departure"
-        class="form-control"
+        class="form-select"
         v-model="quote.departure"
       >
         <option value="Afghanistan">Afghanistan</option>
@@ -399,14 +401,14 @@
         <option value="Zimbabwe">Zimbabwe</option>
       </select>
       <br />
-      <label for="country">Country</label
+      <label for="country">Destination</label
       ><span style="color: red !important; display: inline; float: none"
         >*</span
       >
       <select
         id="country"
         name="destination"
-        class="form-control"
+        class="form-select"
         v-model="quote.destination"
       >
         <option value="Afghanistan">Afghanistan</option>
@@ -695,9 +697,13 @@
         <option value="Zimbabwe">Zimbabwe</option>
       </select>
 
-      <button type="submit">Send</button>
+      <button type="submit" class="btn btn-primary">Send</button>
     </form>
+
   </div>
+
+
+
 </template>
 
 <script>
@@ -786,6 +792,27 @@ width: 20%;
 
 input{
     margin-top: 10px;
+}
+
+label{
+  padding-top: 20px;
+}
+
+button{
+   background-color: #001847 !important;
+   margin-top: 20px;
+}
+
+button:hover{ 
+ background-color: #B5C8EC !important; 
+}
+
+button:active {
+  background-color: #B5C8EC;
+  color: #001847;
+  border-color:#001847 ;
+  
+
 }
 
 @media screen and (max-width: 768px) {

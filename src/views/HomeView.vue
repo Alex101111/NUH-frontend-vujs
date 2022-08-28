@@ -1,7 +1,7 @@
 <template>
   <div id="home">
    <page-carousel/>
-   <services-component/>
+<home-page-compnent/>
    <contact-form/>
   </div>
 
@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import ServicesComponent from '@/components/ServicesComponent.vue'
 import PageCarousel from '../components/_helperComponents/pageCarousel.vue'
 import ContactForm from '@/components/_helperComponents/ContactForm.vue'
+import HomePageCompnent from '@/components/HomepageComp.vue'
 
 
 // @ is an alias to /src
@@ -21,15 +21,16 @@ export default {
   name: 'HomeView',
   components: {
     PageCarousel,
-    ServicesComponent,
-    ContactForm 
+    ContactForm,
+    HomePageCompnent 
 
   } 
 }
 </script>
 
 <style scoped>
-#home{position: relative;}
+#home{position: relative;
+;}
 
 
 

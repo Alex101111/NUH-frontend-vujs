@@ -2,7 +2,7 @@
   <div id="signUpBox">
 <form action=""   @submit.prevent="submitUser" >
     <div id="login-box">
-      <div class="left">
+   
         <h1>Sign up</h1>
 
         <input type="text" v-model="user.name" name="name" placeholder="name" />
@@ -32,7 +32,7 @@
           placeholder="Retype password"
         />
         <div class="phoneNumber">
-     <select name="countryCode" v-model="user.countryCode" id="countryCode">
+     <select name="countryCode" v-model="user.country_code" id="countryCode">
           <option data-countryCode="IQ" value="964" Selected>
             Iraq (+964)
           </option>
@@ -355,22 +355,15 @@
      
       </div>
 
-      <div class="right">
-        <span class="loginwith">Sign in with<br />social network</span>
 
-        <button class="social-signin facebook">Log in with facebook</button>
-        <button class="social-signin twitter">Log in with Twitter</button>
-        <button class="social-signin google">Log in with Google+</button>
-      </div>
-      <div class="or">OR</div>
-    </div>
+
     </form>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-
+import { useToast } from 'vue-toastification'
 export default {
 
   name: "signUpBox",
@@ -384,23 +377,23 @@ export default {
         password: "",
         password2: "",
         phone_nummber: "",
-        countryCode: "",
+        country_code: "",
       },
     };
   },
   methods:{
     async submitUser(){
-   
+       const toast = useToast();
       await  axios.post("signup",this.user)
         .then(Response =>{
-            console.log(Response.data);
-        }).catch(error =>{
-            console.log(error.Response.data);
-        }).finally(() => {
-            this.isLoading = false;
+                 if(Response.data.error_messages){
+        toast(Response.data.error_messages.danger[0])
+      }else{
+        console.log(Response.data)
+              toast(Response.data[0]);
+             this.$router.go(-1)
+              }
         })
-     
-        console.log(this.user)
     },
 
 } }

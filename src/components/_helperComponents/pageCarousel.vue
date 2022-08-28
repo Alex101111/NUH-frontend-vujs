@@ -3,14 +3,13 @@
           <div class="slogan-container">
       <div class="slogan"><h1>TIME IS MONEY WE SAVE YOU BOTH</h1></div>
     </div>
-    <div class="tracking-container">
+    <div class="tracking-container col-md-6">
       <form method="post" @submit.prevent="$store.dispatch('track',this.user)">
       <h2>Tracking informations</h2>
-      <input type="text" placeholder="Enter your tracking number" v-model="user.tracking_number"  />
-      <input type="text" placeholder="enter your surname" v-model="user.surname" />
+      <input class="form-control" type="text" placeholder="Enter your tracking number" v-model="user.tracking_number"  />
+      <input class="form-control" type="text" placeholder="enter your surname" v-model="user.surname" />
       <div class="button-line">
-        <h6>Error msg</h6>
-        <button type="submit">check status</button>
+        <button class="btn" type="submit">check status</button>
       </div>
       </form>
     </div>
@@ -122,10 +121,10 @@ align-self: flex-end;
 }
 
 h2 {
-  display: flex;
-  justify-self: flex-start;
+text-align: center;
   font-family: "Montserrat", sans-serif;
   font-size: 28px;
+  font-weight: bolder;
 }
 h1{
   margin: 20px;
@@ -133,7 +132,7 @@ h1{
 .button-line {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin: 10px;
 }
 input {
@@ -203,10 +202,10 @@ align-self: flex-end;
   width: 80%;
 }
 h2 {
-  display: flex;
-  justify-self: flex-start;
+text-align: center;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
+  font-weight: bolder;
 }
 input {
   border-radius: 10px;
@@ -222,7 +221,7 @@ button {
   border-radius: 30px;
   color: white;
   width: 50%;
-  font-size: 10px;
+  font-size: 15px;
   height: 40px;
 }
 h6{

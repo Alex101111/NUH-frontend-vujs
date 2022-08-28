@@ -1,33 +1,79 @@
 <template>
-  <div class="container contact-form">
-            <div class="contact-image">
-                <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
-            </div>
-            <form method="post">
-                <h3>Drop Us a Message</h3>
-               <div class="row">
+
+  <div class="container photo-quote">
+    <img src="../../assets/photos/Homepage/Contact-form.jpg" alt="" class="container img">
+
+<div class="inside-img">
+       <div class = "container contact-us">
+                             <form id="contact-form" role="form">
+
+            
+
+            <div class="controls">
+
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+                            <label for="form_name" style="color:white; font-weight:bold">Firstname *</label>
+                            <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                            
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                            <label for="form_lastname" style="color:white; font-weight:bold">Lastname *</label>
+                            <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+                                                            </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_email" style="color:white; font-weight:bold">Email *</label>
+                            <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_need" style="color:white; font-weight:bold">Please specify your need *</label>
+                            <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
+                                <option value="" selected disabled>--Select Your Issue--</option>
+                                <option >Request Invoice for order</option>
+                                <option >Request order status</option>
+                                <option >Haven't received cashback yet</option>
+                                <option >Other</option>
+                            </select>
+                            
                         </div>
                     </div>
                 </div>
-            </form>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group" style="padding-top:30px">
+                            <label for="form_message" style="color:white; font-weight:bold">Message *</label>
+                            <textarea id="form_message" name="message" class="form-control" placeholder="Write your message here." rows="4" required="required" data-error="Please, leave us a message."></textarea
+                                >
+                            </div>
+
+                        </div>
+
+
+                    <div class="col-md-12">
+                        
+                        <input type="submit" class="btn btn-success btn-send  pt-2 btn-block
+                            " value="Send Message" >
+                    
+                </div>
+          
+                </div>
+
+
+        </div>
+         </form>
+        </div>
 </div>
+  </div>
 </template>
 
 <script>
@@ -37,55 +83,32 @@ export default {
 </script>
 
 <style scoped>
+.inside-img{
+    position: absolute;
+    height: 500px;
+align-items: center;
+justify-content: space-around;
+width: -moz-available;
+display: flex;
+width: 90%;
+}
 
-.contact-form{
-    background: #fff;
-    margin-top: 10%;
-    margin-bottom: 5%;
-    width: 70%;
+.photo-quote{
+    display: flex;
+justify-content: center;
+
+height: 500px;
 }
-.contact-form .form-control{
-    border-radius:1rem;
+
+#contact-form{
+      width: 50%;
+margin-right: 45px;
 }
-.contact-image{
-    text-align: center;
+
+.contact-us{
+    display: flex;
+justify-content: flex-end
 }
-.contact-image img{
-    border-radius: 6rem;
-    width: 11%;
-    margin-top: -3%;
-    transform: rotate(29deg);
-}
-.contact-form form{
-    padding: 14%;
-}
-.contact-form form .row{
-    margin-bottom: -7%;
-}
-.contact-form h3{
-    margin-bottom: 8%;
-    margin-top: -10%;
-    text-align: center;
-    color: #0062cc;
-}
-.contact-form .btnContact {
-    width: 50%;
-    border: none;
-    border-radius: 1rem;
-    padding: 1.5%;
-    background: #dc3545;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-}
-.btnContactSubmit
-{
-    width: 50%;
-    border-radius: 1rem;
-    padding: 1.5%;
-    color: #fff;
-    background-color: #0062cc;
-    border: none;
-    cursor: pointer;
-}
+
+
 </style>
