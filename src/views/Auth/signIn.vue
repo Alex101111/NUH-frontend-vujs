@@ -55,7 +55,7 @@ export default {
 
         setAuthToken(signin.data.token);
 
-        this.$router.push("/");
+        this.$router.go(-1);
       } catch (error) {
         console.log("Caught an error during login:", error);
       }
