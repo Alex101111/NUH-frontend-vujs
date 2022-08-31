@@ -8,7 +8,7 @@
 <div>
         <h1>Blog update</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nobis non aperiam soluta in! Fugit corporis amet placeat explicabo? Itaque sapiente sunt ad ut nam nostrum quam nihil molestias nobis.</p>
-    <a href="">somewhere</a>
+<router-link  to="/admin/user-controller">somewhere </router-link>
 </div>
   </div>
 </template>

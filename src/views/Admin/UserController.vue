@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="container">
     <table class="table table-hover ">
@@ -8,25 +6,25 @@
 
           <th scope="col">Name</th>
           <th scope="col">Surname</th>
-          <th scope="col">Transport Type</th>
-          <th scope="col">Departure</th>
-          <th scope="col">Destination</th>
-          <th scope="col">Status</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Admin Status</th>
+          <th scope="col">Register Date</th>
         </tr>
       </thead>
       <tbody>
         <tr
-          v-for="info in infos"
-          :key="info.id_commande"
-          @click="gotToDetails(info.id_commande, info.id_user)"
+          v-for="user in users"
+          :key="user.id_user"
+          @click="gotToDetails(user.id_user)"
         >
 
-          <td>{{ info.name }}</td>
-          <td>{{ info.surname }}</td>
-          <td>{{ info.transport_type }}</td>
-          <td>{{ info.departure }}</td>
-          <td>{{ info.destination }}</td>
-          <td>{{ info.commande_status }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.surname }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.country_code }} {{user.phone_number}}</td>
+          <td>{{ user.is_admin }}</td>
+          <td>{{ user.CreatedAt }}</td>
         </tr>
       </tbody>
     </table>
@@ -36,35 +34,27 @@
 
 <script>
 import axios from "axios";
-
 export default {
-  name: "OrderController",
-  components: {},
+name:"UserController",
+ components: {},
   methods: {
-    gotToDetails(infoId, id_user) {
-      this.$store.dispatch("getUser", id_user);
+    gotToDetails(id_user) {
 
       this.$router
         .push({
-          name: "OneOrderController",
-          params: { orderId: infoId },
-        })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((error) => {
-          console.log(error);
+          name: "OneUserController",
+          params: { UserId: id_user },
         });
     },
   },
   data: () => ({
-    infos: [],
+    users: [],
   }),
   async beforeCreate() {
-    const getInfos = await axios.get("admin/orders/all");
-    (this.infos = getInfos.data), console.log(this.infos);
+    const getInfos = await axios.get("admin/users/all");
+    (this.users = getInfos.data), console.log(this.users);
   },
-};
+}
 </script>
 
  <style scoped>

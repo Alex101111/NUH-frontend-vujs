@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-3">
                         <div class="form-group" style="padding-top:30px">
                             <label for="form_message" style="color:white; font-weight:bold">Message *</label>
                             <textarea id="form_message" name="message" class="form-control" placeholder="Write your message here." rows="4" required="required" data-error="Please, leave us a message."></textarea

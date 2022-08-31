@@ -122,6 +122,45 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Admin/OrderEdit.vue')
   },
+  {
+    path: '/admin/user-controller',
+    name: 'UserController',
+    meta: {
+      requiresAuth: true,
+      requireAdmin: true
+
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Admin/UserController.vue')
+  },
+  {
+    path: '/admin/user-controller/{UserId}',
+    name: 'OneUserController',
+    meta: {
+      requiresAuth: true,
+      requireAdmin: true
+
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Admin/OneUserController.vue')
+  },
+  {
+    path: '/admin/user-controller/edit/{UserId}',
+    name: 'UserEdit',
+    meta: {
+      requiresAuth: true,
+      requireAdmin: true
+
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Admin/UserEdit.vue')
+  },
 
   
   {

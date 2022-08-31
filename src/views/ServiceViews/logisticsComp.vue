@@ -105,4 +105,9 @@ padding: 100px;
 color: white;
 font-family: "Montserrat", sans-serif;
 }
+
+.align-items-stretch:hover{
+  transform: scale(1.1) !important;
+}
+
 </style>

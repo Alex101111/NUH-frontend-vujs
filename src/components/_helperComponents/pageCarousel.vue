@@ -18,6 +18,7 @@
       :modules="modules"
       :slides-per-view="1"
       :space-between="50"
+        :pagination="{ clickable: true }"
       @swiper="onSwiper"
       @slideChange="onSlideChange"
     >
@@ -41,6 +42,16 @@
 
       ...
     </swiper>
+
+
+
+
+
+
+
+
+
+
   </div>
 </template>
 
@@ -229,4 +240,5 @@ h6{
   color: red;
 }
 }
+
 </style>

@@ -35,7 +35,7 @@
                 placeholder="enter phone number"
                 value=""
               >
-                {{ getUsers.phone_number }}
+              {{getUsers.country_code}}  {{ getUsers.phone_number }}
               </p>
             </div>
             <div class="col-md-6">

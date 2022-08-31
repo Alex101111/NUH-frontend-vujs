@@ -8,7 +8,7 @@
         <li>
           <Icon
             icon="akar-icons:facebook-fill"
-            width="40"
+            width="50"
             color="white"
             class="icon"
           />
@@ -16,7 +16,7 @@
         <li>
           <Icon
             icon="akar-icons:instagram-fill"
-            width="40"
+            width="50"
             color="white"
             class="icon"
           />
@@ -25,7 +25,7 @@
           <Icon
             icon="icon-park-outline:twitter"
             color="white"
-            width="40"
+            width="50"
             class="icon"
           />
         </li>
@@ -33,8 +33,9 @@
           <Icon
             icon="bx:user-circle"
             color="white"
-            width="40"
+            width="60"
             height="60"
+            class="icon"
             @click="isOpen = !isOpen"
           />
         </li>
@@ -105,6 +106,9 @@ li {
   padding: 10px;
 }
 
+.icon:hover{
+    transform: scale(1.1) !important;
+}
 
 
 

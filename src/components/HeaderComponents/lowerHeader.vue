@@ -23,7 +23,7 @@
     </div>
 
     <nav v-show="!isMobile()">
-      <ul>
+      <ul class="nav-lower">
         <li> <router-link  to="/" style="text-decoration: none ; color: #4f4f4f;">Home</router-link></li>
         <li @mouseover="isOpen = !isOpen">
           Services <Icon icon="bx:down-arrow-alt" />
@@ -39,7 +39,7 @@
          
         </li>
 
-        <li><router-link to= "/getquote" style="text-decoration: none ; color: #4f4f4f;"> get quote </router-link></li>
+        <li><router-link to= "/getquote" style="text-decoration: none ; color: #4f4f4f;"> Get quote </router-link></li>
       </ul>
     </nav>
   </div>
@@ -117,6 +117,10 @@ li {
   position: absolute;
   list-style-type: none;
   left: 25%;
+  margin-top: 10px;
+}
+
+.nav-lower{
   margin-top: 10px;
 }
 @media screen and (max-width: 768px) {

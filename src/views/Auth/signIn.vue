@@ -246,4 +246,9 @@ p {
   background: #bd4033;
   border-color: #bd4033;
 }
+
+
+#password2{
+  width: 100%;
+}
 </style>
