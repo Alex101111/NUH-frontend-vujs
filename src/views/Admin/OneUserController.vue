@@ -6,7 +6,7 @@
         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
           <img
             class="rounded-circle mt-5 srcclass mb-3"
-            src="../../assets//photos/Transport/Cargo.jpg"
+            src="../../assets//photos/Avatar.jpg"
           /><span class="font-weight-bold">{{ user.name }}</span
           ><span class="text-black-50">{{ user.email }}</span><span> </span>
         </div>

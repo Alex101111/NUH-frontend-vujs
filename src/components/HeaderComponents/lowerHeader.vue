@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     isMobile() {
-      if (screen.width <= 760) {
+      if (screen.width <= 760 || screen.width <= 810) {
         return true;
       } else {
         return false;
@@ -123,7 +123,7 @@ li {
 .nav-lower{
   margin-top: 10px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px)  {
   #lowerHeaderComp {
     height: 5%;
     position: relative;

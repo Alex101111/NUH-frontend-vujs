@@ -41,7 +41,7 @@ export function getUserInfo() {
 
 
 // knowing the exp in the token  in seconds 
-function getTokenExpirationDate(encodedToken) {
+export function getTokenExpirationDate(encodedToken) {
     let token = decode(encodedToken)
     if (!token.exp) {
         return null

@@ -5,6 +5,7 @@
     </div>
     <div class="Registeration-nav">
       <ul class="media-icons">
+
         <li>
           <Icon
             icon="akar-icons:facebook-fill"
@@ -39,8 +40,10 @@
             @click="isOpen = !isOpen"
           />
         </li>
+             <li  class="user-btn" v-show ="UserIsLogged()"> Hello {{user}}</li>
       </ul>
       <drop-down-comp :items="userNav" v-if="isOpen"  @mouseleave="isOpen = !isOpen" class="comp"/>
+      
     </div>
   </div>
 </template>
@@ -48,6 +51,7 @@
 <script>
 import DropDownComp from "../_helperComponents/DropDownComp.vue";
 import { Icon } from "@iconify/vue";
+import { isLoggedIn,getUserInfo } from '@/_helpers/auth';
 
 export default {
   name: "upperHeader",
@@ -59,6 +63,9 @@ export default {
   data() {
     return {
         isOpen : false,
+
+            user: {
+    },
 
           userNav: [
         {
@@ -74,10 +81,32 @@ export default {
       ],
     };
   },
+
+       async created() {
+   if (isLoggedIn()){
+     const userInformation =  await getUserInfo()
+
+  this.user = userInformation.data['username']
+}
+    },
+
+    methods:{
+         UserIsLogged(){
+     if (isLoggedIn()){
+       return true
+     }
+   },
+    }
 };
 </script>
 
 <style scoped>
+
+
+.user-btn{
+  color: white;
+  font-weight: bolder;
+}
 #upperHeaderComp {
   background-color: #293e51;
   height: 10%;
@@ -133,8 +162,9 @@ li {
 width: 136px;
 height: 40px;
   }
-  .icon {
-    width: 20px;
+  ul {
+white-space: nowrap;
+margin-left: -8%;
   }
   .comp{
         margin-top:45%;

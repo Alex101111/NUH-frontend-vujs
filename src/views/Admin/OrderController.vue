@@ -12,6 +12,9 @@
           <th scope="col">Departure</th>
           <th scope="col">Destination</th>
           <th scope="col">Status</th>
+                    <router-link to="/admin"><button type="button" class="btn btn-success">Back to Admin Space </button> </router-link>
+
+
         </tr>
       </thead>
       <tbody>
@@ -114,6 +117,9 @@ h1 {
   align-self: center;
   width: 20%;
   margin: 10px;
+}
+td{
+  padding-top: 20px;
 }
 @media (max-width: 767px) {
   .upper {

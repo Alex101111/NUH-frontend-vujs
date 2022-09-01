@@ -1,10 +1,12 @@
 <template>
     <upper-header class="upper" />
     <lower-header class="lower" />
-   <router-view/>
+   <router-view class="content"/>
+  <footer-comp/>
 </template>
 
 <script>
+import FooterComp from './components/FooterComp.vue';
 import LowerHeader from './components/HeaderComponents/lowerHeader.vue';
 import UpperHeader from "./components/HeaderComponents/upperHeader.vue";
 
@@ -14,6 +16,7 @@ export default {
   components: {
     UpperHeader,
     LowerHeader,
+    FooterComp,
 
 
 
@@ -32,5 +35,8 @@ html, body{
   height: 100%;
 }
  
+ .content{
+  padding-bottom: 100px;
+ }
 
 </style>

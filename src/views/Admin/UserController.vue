@@ -10,6 +10,8 @@
           <th scope="col">Phone Number</th>
           <th scope="col">Admin Status</th>
           <th scope="col">Register Date</th>
+                              <router-link to="/admin"><button type="button" class="btn btn-success">Back to Admin Space </button> </router-link>
+
         </tr>
       </thead>
       <tbody>

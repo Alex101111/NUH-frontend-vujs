@@ -1,6 +1,6 @@
 <template>
   <div id="DropDownComp">
-    <li v-for="(item, i) in items" :key="i"    class="user-btn">
+    <li v-for="(item, i) in items" :key="i"    class="user-btn" v-show ="! UserIsLogged()" >
       <router-link
         :to="{ path: item.router }"
         style="text-decoration: none; color: #4f4f4f"

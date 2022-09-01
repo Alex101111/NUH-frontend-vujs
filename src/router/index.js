@@ -1,19 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import {isLoggedIn, isAdmin } from '@/_helpers/auth'
+import {isLoggedIn, isAdmin, } from '@/_helpers/auth'
 import HomeView from '../views/HomeView.vue'
 import axios from 'axios'
 import { useToast } from 'vue-toastification'
 
+
+
+
 // creating function to set and an auth header at every command that the app makes 
 (function() {
   var token = localStorage.getItem('token')
- if (token) {
+
+ if (token & token !='undefined') {
      axios.defaults.headers.common['Authorization'] = "Bearer " + token;
  } else {
      delete axios.defaults.headers.common['Authorization'] ;
-
  }
+ 
+
 })();
+
+
 
 const routes = [
   {
