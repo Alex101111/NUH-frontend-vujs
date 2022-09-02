@@ -150,7 +150,7 @@
             </div>
             <br />
             <div class="col-md-4">
-              <label class="labels">net_weight</label
+              <label class="labels">net weight</label
               ><input
                 type="text"
                 class="form-control"
@@ -161,7 +161,7 @@
           </div>
           <div class="row mt-2">
             <div class="col-md-4">
-              <label class="labels">gross_weight</label
+              <label class="labels">gross weight</label
               ><input
                 type="text"
                 class="form-control"
@@ -183,7 +183,7 @@
             </div>
           </div>
           <div class="col-md-12">
-            <label class="labels">commande_status</label
+            <label class="labels">commande status</label
             ><textarea
               type="text"
               class="form-control"
@@ -192,7 +192,7 @@
             ></textarea>
           </div>
           <div class="col-md-12">
-            <label class="labels">commande_comment</label
+            <label class="labels">commande comment</label
             ><textarea
               type="text"
               class="form-control"
@@ -271,6 +271,9 @@ export default {
 </script>
 
 <style scoped>
+.mb-5{
+  padding-top: 13%;
+}
 body {
   background: rgb(99, 39, 120);
 }

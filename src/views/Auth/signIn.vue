@@ -50,7 +50,7 @@
 <script>
 import axios from "axios";
 import { useToast } from 'vue-toastification'
-import { setAuthToken } from "../../_helpers/auth.js";
+import { clearAuthToken, setAuthToken } from "../../_helpers/auth.js";
 
 export default {
   name: "logIn",
@@ -74,6 +74,7 @@ export default {
         }
       } catch (error) {
         console.log("Caught an error during login:", error);
+        clearAuthToken()
       }
     },
   },

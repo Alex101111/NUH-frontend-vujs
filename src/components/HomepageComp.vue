@@ -5,7 +5,7 @@
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold">Become a member</h1>
         <p class="col-md-8 fs-4">with just a few steps, you be a memebr of our comunity and you will be able to make commands and keep track of your commands online with simple clicks .</p>
-        <button class="btn btn-primary btn-lg" type="button"> <router-link style="text-decoration: none ; color: white;" to="/signup"> signup </router-link></button>
+        <router-link style="text-decoration: none ; color: white;" to="/signup"> <button class="btn btn-primary btn-lg" type="button"> signup </button></router-link>
       </div>
     </div>
     <h2>Our Services</h2>
@@ -16,7 +16,7 @@
 
           <h3 class="mb-3">Transportation</h3>
           <p class="card-text mb-auto">Our Companny is a public transport and logistics company of leading companies specialized in the filed of transport</p>
-         <button type="button" class="btn btn-primary service-btn"> <router-link style="text-decoration: none ; color: white;" to="/transport">Access Service</router-link> </button>
+        <router-link style="text-decoration: none ; color: white;" to="/transport"> <button type="button" class="btn btn-primary service-btn"> Access Service</button></router-link> 
         </div>
         <div class="col-auto d-none d-lg-block">
         <img src="../assets/photos/Homepage/Transport.jpg" class="bd-placeholder-img"  alt="">
@@ -28,7 +28,7 @@
         <div class="col p-4 d-flex flex-column position-static hover-effect">
           <h3 class="mb-3">Logistics</h3>
           <p class="mb-auto">Our company can offer you the best logistics service experience thanks to our multiple services like custom clearance, cargo shipping, and warehouses/ </p>
-        <button type="button" class="btn btn-primary service-btn"> <router-link style="text-decoration: none ; color: white;" to="/logistics">Access Service</router-link> </button>
+     <router-link style="text-decoration: none ; color: white;" to="/logistics">    <button type="button" class="btn btn-primary service-btn">Access Service </button></router-link>
         </div>
         <div class="col-auto d-none d-lg-block">
           <img src="../assets/photos/Homepage/Logistics.jpg" class="bd-placeholder-img"  alt="">
@@ -44,7 +44,7 @@
     <h1 style="color:white" class="mb-5">Need a Quote now ?</h1>
     <p style="color:white; font-size: x-large;">it's super easy to get a quote and make an order.<br>click here to access our service  </p>
     </div>
-<button type="button" class="btn btn-primary"> <router-link style="text-decoration: none ; color: white;" to="/getquote"> Get Quote </router-link></button>
+<router-link style="text-decoration: none ; color: white;" to="/getquote"><button type="button" class="btn btn-primary">  Get Quote</button> </router-link>
 </div>
   </div>
   <h2>Contact us </h2>
@@ -74,6 +74,7 @@ components:{
 
 .Services{
   padding-top: 100px;
+        font-size: 20px;
 }
 .photo-quote{
     display: flex;
@@ -134,6 +135,7 @@ font-family: "Montserrat", sans-serif;
 line-height: 1.22;
 letter-spacing: .9px;
 font-size: 45px;
+font-weight: bold;
 }
 
 
@@ -196,6 +198,19 @@ h3 {
   display: flex;
   flex-direction: column;
 }
+
+
+h2{
+  text-align: center;
+padding: 100px;
+font-family: "Montserrat", sans-serif;
+line-height: 1.22;
+letter-spacing: .9px;
+font-size: 30px;
+font-weight: bold;
+white-space: nowrap
+}
+
   }
 
 </style>

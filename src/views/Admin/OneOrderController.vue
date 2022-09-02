@@ -1,5 +1,5 @@
 <template>
-  <div class="container rounded bg-white mt-5 mb-5">
+  <div class="container rounded bg-white mt-5 " id="one-order">
     <div class="row">
       <div class="col-md-3 border-right">
         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -124,7 +124,7 @@
             </div>
             <br />
             <div class="col-md-4">
-              <label class="labels">commande_status</label>
+              <label class="labels">commande status</label>
               <p
                 type="text"
                 class="1"
@@ -184,7 +184,7 @@
             </div>
             <br />
             <div class="col-md-4">
-              <label class="labels">net_weight</label>
+              <label class="labels">net weight</label>
               <p
                 type="text"
                 class="1"
@@ -197,14 +197,14 @@
           </div>
           <div class="row mt-2">
             <div class="col-md-4">
-              <label class="labels">gross_weight</label>
+              <label class="labels">gross weight</label>
               <p type="text" class="1" placeholder="experience" value="">
                 {{ order.gross_weight }}
               </p>
             </div>
             <br />
             <div class="col-md-4">
-              <label class="labels">quote_date</label>
+              <label class="labels">quote date</label>
               <p
                 type="text"
                 class="1"
@@ -216,7 +216,7 @@
             </div>
           </div>
           <div class="col-md-12">
-            <label class="labels">commande_comment</label>
+            <label class="labels">commande comment</label>
             <p type="text" class="1" placeholder="experience" value="">
               {{ order.commande_comment }}
             </p>
@@ -286,6 +286,11 @@ export default {
 </script>
 
 <style scoped>
+
+
+#one-order{
+  padding-top: 13%;
+}
 body {
   background: rgb(99, 39, 120);
 }
@@ -335,4 +340,7 @@ body {
 p {
   font-weight: inherit;
 }
+
+
+
 </style>

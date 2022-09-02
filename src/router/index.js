@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import {isLoggedIn, isAdmin, } from '@/_helpers/auth'
+import {isLoggedIn, isAdmin,isTokenExpired,clearAuthToken,isActive } from '@/_helpers/auth'
 import HomeView from '../views/HomeView.vue'
 import axios from 'axios'
 import { useToast } from 'vue-toastification'
@@ -10,15 +10,22 @@ import { useToast } from 'vue-toastification'
 // creating function to set and an auth header at every command that the app makes 
 (function() {
   var token = localStorage.getItem('token')
-
- if (token & token !='undefined') {
+console.log('sth')
+ if (token ) 
+ {
+  
+  if (isTokenExpired(token) ){
+    clearAuthToken()
+  }else{
      axios.defaults.headers.common['Authorization'] = "Bearer " + token;
- } else {
-     delete axios.defaults.headers.common['Authorization'] ;
- }
+ } 
  
+ }else {
+  delete axios.defaults.headers.common['Authorization'] ;
+}
 
 })();
+
 
 
 
@@ -49,6 +56,18 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Auth/signIn.vue')
+  },
+  {
+    path: '/validation',
+    name: 'ValidationPage',
+    meta: {
+      allowAnonymous: true,
+      RequireActive: true
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Auth/ValidationPage.vue')
   },
   {
     path: '/resetlink',
@@ -337,6 +356,21 @@ router.beforeEach((to) => {
       query: { redirect: to.fullPath },
     }
   }
+
+  if (to.meta.RequireActive && isActive()) {
+
+    const toast = useToast();
+    toast('you are already validated')
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    return {
+      path: '/',
+      // save the location we were at to come back later
+      query: { redirect: to.fullPath },
+    }
+  }
+
+
 })
 
 export default router

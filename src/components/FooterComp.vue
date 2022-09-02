@@ -14,7 +14,8 @@
               <div class="footer_social_area"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest"><i class="fa fa-pinterest"></i></a><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype"><i class="fa fa-skype"></i></a><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></div>
             </div>
           </div>
-          <!-- Single Widget-->
+          <!-- Single Widget-->  
+          <div class="for-mobile">
           <div class="col-12 col-sm-6 col-lg">
             <div class="single-footer-widget section_padding_0_130">
               <!-- Widget Title-->
@@ -39,7 +40,7 @@
                   <li><a href="#">Transport</a></li>
                   <li><a href="#">Logistics</a></li>
                   <li><a href="#">Get Quote</a></li>
-                  <li><a href="#">Track your command</a></li>
+                  <li><a href="#">Track command</a></li>
                 </ul>
               </div>
             </div>
@@ -48,7 +49,7 @@
           <div class="col-12 col-sm-6 col-lg">
             <div class="single-footer-widget section_padding_0_130">
               <!-- Widget Title-->
-              <h5 class="widget-title">Registeration</h5>
+              <h5 class="widget-title">Register</h5>
               <!-- Footer Menu-->
               <div class="footer_menu">
                 <ul>
@@ -58,6 +59,7 @@
                 </ul>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -79,7 +81,7 @@ export default {
     overflow: hidden;
     background-color: #293e51;
     color: white;
-
+    margin-top: 10%;
     box-shadow: 0 8px 48px 8px rgba(47, 91, 234, 0.175);
     padding:20px;
 }
@@ -251,5 +253,34 @@ a:hover{
 
 .footer_social_area a {
     color: black !important;
+}
+
+
+
+.for-mobile{
+  display: flex;
+  flex-direction: row;
+
+
+}
+
+.col-sm-6{
+width: fit-content;
+padding-top: 20px;
+}
+@media (max-width: 767px) {
+
+.col-sm-6{
+width: fit-content;
+}
+
+.for-mobile{
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+
+}
+
+
 }
 </style>

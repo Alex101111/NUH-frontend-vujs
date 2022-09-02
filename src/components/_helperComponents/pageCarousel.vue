@@ -1,11 +1,11 @@
 <template>
   <div id="carouselComp">
           <div class="slogan-container">
-      <div class="slogan"><h1>TIME IS MONEY WE SAVE YOU BOTH</h1></div>
+      <div class="slogan"><h1>TIME IS MONEY... WE SAVE YOU BOTH !</h1></div>
     </div>
     <div class="tracking-container col-md-6">
+            <h2 style="margin: 10px;">Tracking informations</h2>
       <form method="post" @submit.prevent="$store.dispatch('track',this.user)">
-      <h2>Tracking informations</h2>
       <input class="form-control" type="text" placeholder="Enter your tracking number" v-model="user.tracking_number"  />
       <input class="form-control" type="text" placeholder="enter your surname" v-model="user.surname" />
       <div class="button-line">
@@ -124,7 +124,7 @@ align-self: flex-end;
   z-index: 7;
   background-color: #c6d5e27c;
   text-align: center;
-  margin-top: 3%;
+  margin-top: 10%;
   color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 25px;
@@ -154,12 +154,13 @@ input {
   margin: 10px;
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
+
 }
 button {
   background-color: #001847;
   border-radius: 30px;
   color: white;
-  width: 30%;
+  width: 40%;
   font-size: 19px;
   height: 50px;
 }
@@ -185,12 +186,15 @@ button:active {
   height: 70vh;
 
 }
+
 @media screen and (max-width: 768px) {
 .img {
   width: 100%;
   height: 70vh;
 
 }
+
+
 .slogan-container {
   z-index: 7;
   background-color: #c6d5e27c;
@@ -239,6 +243,12 @@ h6{
   font-size: 10px;
   color: red;
 }
+
+form{
+    display: flex;
+  flex-direction: column;
 }
+}
+
 
 </style>

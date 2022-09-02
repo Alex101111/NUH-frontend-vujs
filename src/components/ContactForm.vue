@@ -1,7 +1,7 @@
 <template>
 
-  <div class="container photo-quote">
-    <img src="../../assets/photos/Homepage/Contact-form.jpg" alt="" class="container img">
+  <div class="container photo-quote" id="contact-us">
+    <img src="../assets/photos/Homepage/Contact-form.jpg" alt="" class="container img">
 
 <div class="inside-img">
        <div class = "container contact-us">
@@ -59,7 +59,7 @@
                         </div>
 
 
-                    <div class="col-md-12">
+                    <div class="col-md-12 btn-send">
                         
                         <input type="submit" class="btn btn-success btn-send  pt-2 btn-block
                             " value="Send Message" >
@@ -110,5 +110,25 @@ margin-right: 45px;
 justify-content: flex-end
 }
 
+
+@media (max-width: 767px) {
+
+#contact-form{
+    width: 80% !important;
+}
+
+.btn-send{
+    text-align: center;
+
+}
+
+.btn {
+padding-bottom: 10px !important;
+}
+
+input{
+    font-size: 10px;
+}
+}
 
 </style>

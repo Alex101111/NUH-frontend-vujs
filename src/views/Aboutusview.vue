@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div id="about-us">
       <div class="container">  
 
         <h2>Who Are We ?</h2>
-        <div class="row">
-          <div class="col-lg-6">
+        <div class="row container">
+          <div class="col-lg-6" style="display:flex">
             <img src="../assets/photos/WhoAreWe/Who-are-we.jpg" class="img-fluid" alt="Who-are-we">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
@@ -53,7 +53,7 @@
 
 <script>
 
-import ContactForm from '@/components/_helperComponents/ContactForm.vue'
+import ContactForm from '@/components/ContactForm.vue'
 export default {
 name: "AboutUs",
 components:{
@@ -70,9 +70,26 @@ ContactForm
     flex-direction: row-reverse;
 }
 
+#about-us{
+  padding-top: 10%;
+}
 
 h2{
   text-align: center;
-padding: 100px;
+padding: 50px;
+}
+
+.row{
+  font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+
+h2{
+padding: 50px;
+}
+#about-us{
+  padding-top: 40%;
+}
 }
 </style>

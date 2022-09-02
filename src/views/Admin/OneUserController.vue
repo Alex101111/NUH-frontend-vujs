@@ -1,6 +1,6 @@
 <template>
 
- <div class="container rounded bg-white mt-5 mb-5">
+ <div class="container rounded bg-white mt-5 " id="one-user">
     <div class="row">
       <div class="col-md-3 border-right">
         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -146,14 +146,14 @@ export default {
     },
       deleteOrder() {
     const toast = useToast();
-    const { orderId } = this.$route.params;
+    const  orderId =  this.user.id_user;
     console.log(orderId)
     axios.post("admin/users/delete/" + orderId).then((Response) => {
       if (Response.data.error_messages) {
         toast(Response.data.error_messages.danger[0]);
       } else {
         toast(Response.data[0]);
-           this.$router.push({name: 'OrderController'})
+           this.$router.push({name: 'UserController'})
            console.log(Response.data)
       }
     });
@@ -165,6 +165,9 @@ export default {
 </script>
 
 <style scoped>
+#one-user{
+  padding-top: 13%;
+}
 body {
   background: rgb(99, 39, 120);
 }

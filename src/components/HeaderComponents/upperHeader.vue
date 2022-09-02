@@ -38,11 +38,13 @@
             height="60"
             class="icon"
             @click="isOpen = !isOpen"
+            v-show ="!UserIsLogged()"
           />
         </li>
-             <li  class="user-btn" v-show ="UserIsLogged()"> Hello {{user}}</li>
+             <li  class="user-btn" v-show ="UserIsLogged()" @click="isOpen = !isOpen"> Hello {{user}} <Icon icon="bx:down-arrow-alt"  /></li>
+                 <drop-down-comp :items="userNav" v-if="isOpen"  @mouseleave="isOpen = !isOpen" class="comp"/>
       </ul>
-      <drop-down-comp :items="userNav" v-if="isOpen"  @mouseleave="isOpen = !isOpen" class="comp"/>
+  
       
     </div>
   </div>
@@ -130,6 +132,7 @@ li {
   align-items: center;
   margin-right: 3%;
   z-index: 9;
+  
 }
 .icon {
   padding: 10px;
@@ -149,7 +152,7 @@ li {
   list-style-type: none;
   position: absolute;
   right: 3%;
-  margin-top: 10%;
+
 }
 
 @media screen and (max-width: 768px) {
@@ -164,10 +167,21 @@ height: 40px;
   }
   ul {
 white-space: nowrap;
-margin-left: -8%;
+margin-top: none !important;
+margin-top: 16px;
+
   }
-  .comp{
-        margin-top:45%;
+
+
+  .icon{
+    padding: 4px;
+    width: 40px;
+
   }
+
+  .media-icons{
+    margin-left: -6% !important;
+  }
+
 }
 </style>

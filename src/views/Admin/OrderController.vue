@@ -1,7 +1,8 @@
 
 
 <template>
-  <div class="container">
+  <div class="container" id="order-controller">
+                        <router-link to="/admin"><button type="button" class="btn btn-success">Back to Admin Space </button> </router-link>
     <table class="table table-hover ">
       <thead>
         <tr>
@@ -12,7 +13,7 @@
           <th scope="col">Departure</th>
           <th scope="col">Destination</th>
           <th scope="col">Status</th>
-                    <router-link to="/admin"><button type="button" class="btn btn-success">Back to Admin Space </button> </router-link>
+
 
 
         </tr>
@@ -121,6 +122,10 @@ h1 {
 td{
   padding-top: 20px;
 }
+
+#order-controller{
+  padding-top: 15%;
+}
 @media (max-width: 767px) {
   .upper {
     display: none;
@@ -143,5 +148,29 @@ td{
     text-align: center;
     height: 100px;
   }
+
+#order-controller{
+  padding-top: 40%;
+}
+
+tr{
+  display: flex;
+  flex-direction: column;
+}
+table{
+  display: flex;
+}
+th{
+display: none;
+}
+td{
+  padding-top: 30px;
+}
+tr{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color:#d5e0f4;
+  margin: 20px;
+}
+
 }
 </style>

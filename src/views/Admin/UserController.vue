@@ -1,6 +1,8 @@
 <template>
-  <div class="container">
+  <div class="container" id="user-controller">
+                                  <router-link to="/admin"><button type="button" class="btn btn-success">Back to Admin Space </button> </router-link>
     <table class="table table-hover ">
+      
       <thead>
         <tr>
 
@@ -9,8 +11,9 @@
           <th scope="col">Email</th>
           <th scope="col">Phone Number</th>
           <th scope="col">Admin Status</th>
+          <th scope="col">Active Status</th>
           <th scope="col">Register Date</th>
-                              <router-link to="/admin"><button type="button" class="btn btn-success">Back to Admin Space </button> </router-link>
+
 
         </tr>
       </thead>
@@ -26,6 +29,7 @@
           <td>{{ user.email }}</td>
           <td>{{ user.country_code }} {{user.phone_number}}</td>
           <td>{{ user.is_admin }}</td>
+          <td>{{ user.active }}</td>
           <td>{{ user.CreatedAt }}</td>
         </tr>
       </tbody>
@@ -107,6 +111,10 @@ h1 {
   width: 20%;
   margin: 10px;
 }
+
+#user-controller{
+  padding-top: 15%;
+}
 @media (max-width: 767px) {
   .upper {
     display: none;
@@ -129,5 +137,32 @@ h1 {
     text-align: center;
     height: 100px;
   }
+
+  
+#user-controller{
+  padding-top: 40%;
+}
+
+tr{
+  display: flex;
+  flex-direction: column;
+}
+table{
+  display: flex;
+
+
+}
+th{
+display: none;
+
+}
+td{
+  padding-top: 30px;
+}
+tr{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color:#d5e0f4;
+  margin: 20px;
+}
 }
 </style>

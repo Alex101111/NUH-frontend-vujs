@@ -12,11 +12,12 @@
       />
       <div class="menu-slide">
               <ul class="mobileUl">
-        <li>Home</li>
+       <router-link to="/" style="text-decoration: none ; color: #4f4f4f; padding-top: 20px;"><li>Home</li> </router-link>
+            <router-link to="/getquote" style="text-decoration: none ; color: #4f4f4f; padding-top: 20px;"> <li >Get quote</li></router-link>
         <li @click="showDeopService = !showDeopService" style="color:#001847">Services <Icon icon="bx:down-arrow-alt"  /></li>
-        <drop-down-comp :items="services" v-if="showDeopService && isActive" />
-        <li tyle="color:#001847">About us </li>
-        <li>Contact Us</li>
+        <service-drop-down-comp :items="services" v-if="showDeopService && isActive" />
+       <router-link to="/aboutus" style="text-decoration: none ; color: #4f4f4f; padding-top: 20px;"> <li >About us </li></router-link>
+       <a href="#contact-us" style="text-decoration: none ; color: #4f4f4f; padding-top: 20px;"> <li> Contact Us</li></a>
       </ul>
       </div>
 
@@ -24,15 +25,16 @@
 
     <nav v-show="!isMobile()">
       <ul class="nav-lower">
-        <li> <router-link  to="/" style="text-decoration: none ; color: #4f4f4f;">Home</router-link></li>
-        <li @mouseover="isOpen = !isOpen">
+        <li> <router-link  to="/" style="text-decoration: none ; color: #4f4f4f; padding-top: 20px;">Home</router-link></li>
+       <span></span> <li @mouseover="isOpen = !isOpen" @click="isOpen = !isOpen"  >
           Services <Icon icon="bx:down-arrow-alt" />
         </li>
-        <drop-down-comp
+        <service-drop-down-comp
           :items="services"
           v-if="isOpen"
           class="service"
           @mouseleave="isOpen = !isOpen"
+           
         />
         <li>
           <router-link to="/aboutus" style="text-decoration: none ; color: #4f4f4f;"> About us  </router-link>
@@ -40,6 +42,7 @@
         </li>
 
         <li><router-link to= "/getquote" style="text-decoration: none ; color: #4f4f4f;"> Get quote </router-link></li>
+               <a href="#contact-us" style="text-decoration: none ; color: #4f4f4f; padding-top: 20px;"> <li> Contact Us</li></a>
       </ul>
     </nav>
   </div>
@@ -47,12 +50,14 @@
 
 <script>
 import { Icon } from "@iconify/vue";
-import DropDownComp from "../_helperComponents/DropDownComp.vue";
+
+import ServiceDropDownComp from "../_helperComponents/ServiceDropDownComp.vue"
 export default {
   name: "lowerHeader",
   components: {
     Icon,
-    DropDownComp,
+
+    ServiceDropDownComp,
   },
   data() {
     return {
@@ -70,7 +75,7 @@ export default {
   },
   methods: {
     isMobile() {
-      if (screen.width <= 760 || screen.width <= 810) {
+      if (screen.width <= 760) {
         return true;
       } else {
         return false;
@@ -103,6 +108,7 @@ li {
   color: #4f4f4f;
   border-bottom: 1px solid transparent;
   border-bottom-width: 2px;
+  font-weight: bold;
 }
 
 .service {
@@ -130,15 +136,14 @@ li {
     z-index: 8;
   }
 
-
+li{
+    text-decoration: none !important;
+}
 
   .active {
     transform: translateY(600px);
     transition: all 1s ease-out;
-    background-color: #001847a4;
-
-
-
+    background-color: #001847;
   }
 
   .rotate{
@@ -169,6 +174,8 @@ transform: rotate(-90deg);
   padding-top: 10%;
   white-space: nowrap;
   margin: 5px;
+
+
 }
 
 li:active {
@@ -176,6 +183,8 @@ li:active {
 }
 .burger-icon{
   z-index: 9;
+  color:#293e51 !important;
+  font-weight: bolder;
 }
 
 }

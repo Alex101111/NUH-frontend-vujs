@@ -10,7 +10,7 @@
 
 <script>
 import PageCarousel from '../components/_helperComponents/pageCarousel.vue'
-import ContactForm from '@/components/_helperComponents/ContactForm.vue'
+import ContactForm from '@/components/ContactForm.vue'
 import HomePageCompnent from '@/components/HomepageComp.vue'
 
 
@@ -30,7 +30,16 @@ export default {
 
 <style scoped>
 #home{position: relative;
+
+
 ;}
+@media screen and (max-width: 768px) {
+
+
+  #home{
+    padding-top: 35%;
+  }
+}
 
 
 

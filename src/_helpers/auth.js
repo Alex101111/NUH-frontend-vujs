@@ -53,7 +53,7 @@ export function getTokenExpirationDate(encodedToken) {
 }
 
 // check if the token has expired or not 
-function isTokenExpired(token) {
+export function isTokenExpired(token) {
     let expirationDate = getTokenExpirationDate(token)
     return expirationDate < new Date()
 }
@@ -66,6 +66,12 @@ export function isAdmin() {
     }
 }
 
+export function isActive() {
+    let userData = getUserInfo()
+    if (userData.data.is_active === true) {
+        return true
+    }
+}
 
 
 
