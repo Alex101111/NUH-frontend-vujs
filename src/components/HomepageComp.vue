@@ -40,7 +40,7 @@
   <div class="container photo-quote">
     <img src="../assets/photos/Homepage/getQuote.jpg" alt="" class="container img">
 <div class="inside-img">
-    <div style="margin:10px">
+    <div class="textForMobile">
     <h1 style="color:white" class="mb-5">Need a Quote now ?</h1>
     <p style="color:white; font-size: x-large;">it's super easy to get a quote and make an order.<br>click here to access our service  </p>
     </div>
@@ -183,9 +183,18 @@ h3 {
   background-color: #d5e0f4;
   z-index: 0;
 }
+.textForMobile{
 
+  width: 48%;
+}
 
 @media screen and (max-width: 768px) {
+
+.textForMobile{
+  margin: 10% !important;
+  width: 90%;
+}
+
 
 .service-btn{
 

@@ -41,11 +41,11 @@ export default {
 
 .user-btn {
   font-family: "Montserrat", sans-serif;
-  font-size: 18px;
+  font-size: 19px;
   color: #4f4f4f;
   z-index: 9;
-
-padding: 20px;
+  font-weight: bold;
+  padding: 20px;
 }
 
 .user-btn:hover {

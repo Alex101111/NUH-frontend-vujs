@@ -87,16 +87,29 @@
             <span>Order Informations</span>
           </h4>
           <br />
-          <label class="labels">transport_type</label>
+          <label class="labels">transport type</label>
           <select
             class="form-select form-select-sm"
             aria-label=".form-select-sm example"
+            v-model="order.transport_type"
           >
-            <option selected>{{ order.transport_type }}</option>
-            <option value="1">fry</option>
-            <option value="2">reefer</option>
+            <option selected disabled>{{ order.transport_type }}</option>
+            <option value="Sea">Sea</option>
+            <option value="Land">Land</option>
+            <option value="Flight">Flight</option>
           </select>
           <br />
+                    <label class="labels">Container type</label>
+          <select
+            class="form-select form-select-sm"
+            aria-label=".form-select-sm example"
+            v-model="order.container_type"
+          >
+            <option selected disabled>{{ order.container_type }}</option>
+            <option value="Dry">Dry</option>
+            <option value="Reefer">Reefer</option>
+          </select>
+          <br>
           <div class="row mt-2">
             <div class="col-md-4">
               <label class="labels">departure</label>
@@ -223,6 +236,7 @@ export default {
   data: () => ({
     order: {
       transport_type: "",
+      container_type: "",
       length: "",
       height: "",
       width: "",

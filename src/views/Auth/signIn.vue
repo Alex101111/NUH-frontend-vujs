@@ -70,7 +70,8 @@ export default {
           toast(signin.data.error_messages['danger'])
         }else{
         setAuthToken(signin.data.token);
-        this.$router.go(-1);
+        window.location.reload()
+
         }
       } catch (error) {
         console.log("Caught an error during login:", error);
@@ -82,7 +83,25 @@ export default {
 </script>
 
 <style scoped>
+
+.btn{ 
+  background-color: #001847 !important;
+  width: 100px;
+}
+
+.btn:hover{ 
+ background-color: #B5C8EC !important; 
+}
+
+.btn:active {
+  background-color: #B5C8EC;
+  color: #001847;
+  border-color:#001847 ;
+  
+
+}
 .signin{
+  
   display: flex;
 flex-direction: column;
 align-items: center;
@@ -230,5 +249,11 @@ p {
 }
 #password2{
   width: 100%;
+}
+
+@media (max-width: 767px) {
+.btn{
+ width: 60px;
+}
 }
 </style>

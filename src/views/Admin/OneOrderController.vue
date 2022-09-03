@@ -122,18 +122,18 @@
                 {{ order.transport_type }}
               </p>
             </div>
-            <br />
-            <div class="col-md-4">
-              <label class="labels">commande status</label>
-              <p
-                type="text"
-                class="1"
-                placeholder="additional details"
-                value=""
+              <br>
+                                      <div class="col-md-4">
+              <label class="labels" style="white-space: nowrap"
+                >Container Type</label
               >
-                {{ order.commande_status }}
+              <p type="text" class="1" placeholder="experience" value="">
+                {{ order.container_type }}
               </p>
             </div>
+
+            <br />
+      
           </div>
           <div class="row mt-2">
             <div class="col-md-4">
@@ -221,6 +221,18 @@
               {{ order.commande_comment }}
             </p>
           </div>
+          <br>
+                <div class="col-md-4">
+              <label class="labels">commande status</label>
+              <p
+                type="text"
+                class="1"
+                placeholder="additional details"
+                value=""
+              >
+                {{ order.commande_status }}
+              </p>
+            </div>
           <br />
         </div>
       </div>
@@ -295,11 +307,9 @@ body {
   background: rgb(99, 39, 120);
 }
 
-/* :focus {
-    box-shadow: none;
-    border-color: #BA68C8
-} */
-
+label{
+  white-space: nowrap;
+}
 .profile-button {
   background: #001847;
   box-shadow: none;

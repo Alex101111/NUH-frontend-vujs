@@ -1,7 +1,8 @@
 <template>
   <div id="lowerHeaderComp" >
-    <div  v-show="isMobile()" class="Mobile" :class="{ active: isActive }  ">
-      <Icon
+    <div  v-show="isMobile()" class="Mobile" :class="{ active: isActive }">
+      <div class="icon-test">
+                  <Icon
         @click="isActive = !isActive ; "
        :class="{ rotate: isActive }  "
         icon="ant-design:menu-fold-outlined"
@@ -10,6 +11,7 @@
          color="white" 
           :rotate="1"
       />
+      </div>
       <div class="menu-slide">
               <ul class="mobileUl">
        <router-link to="/" style="text-decoration: none ; color: #4f4f4f; padding-top: 20px;"><li>Home</li> </router-link>
@@ -19,6 +21,7 @@
        <router-link to="/aboutus" style="text-decoration: none ; color: #4f4f4f; padding-top: 20px;"> <li >About us </li></router-link>
        <a href="#contact-us" style="text-decoration: none ; color: #4f4f4f; padding-top: 20px;"> <li> Contact Us</li></a>
       </ul>
+
       </div>
 
     </div>
@@ -157,7 +160,8 @@ transform: rotate(-90deg);
   display: flex;
     justify-content:center;
     width: 100%;
-        overflow: hidden
+        overflow: hidden;
+       
 
   }
   .mobileUl{

@@ -802,7 +802,6 @@ export default {
         await axios
           .post("set-quote ", this.quote)
           .then((Response) => {
-            console.log(Response.data);
             if (Response.data.error_messages) {
               toast(Response.data.error_messages.danger[0]);
             } else {
@@ -820,8 +819,6 @@ export default {
 
 <style scoped>
 .img-div {
-
-  width: 80%;
   height: 50%;
   z-index: -1;
   background-image: url(../assets/photos/Quote/quote-form.jpg);

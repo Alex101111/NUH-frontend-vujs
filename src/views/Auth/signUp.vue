@@ -16,5 +16,22 @@ export default {
 </script>
 
 <style scoped>
-@import "/./src/assets/css/signup.css";
+#signUp {
+    background-image: url(../../assets/photos/signup.jpg);
+    background-size: 100% 100%;
+
+height: inherit;
+    /* filter: blur(50px) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
+   ;*/ 
+;
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+}
+
+
+
+
+
 </style>

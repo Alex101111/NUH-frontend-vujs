@@ -1,38 +1,34 @@
 <template>
-  <div id="signUpBox">
+
+<div id="signup-box">
+
 <form action=""   @submit.prevent="submitUser" >
     <div id="login-box">
    
         <h1>Sign up</h1>
 
-        <input type="text" v-model="user.name" name="name" placeholder="name" />
-        <input
+<div class="row g-3">
+  <div class="col">
+    <div class="input-group">
+
+  <input type="text" v-model="user.name" name="name" placeholder="name" class="form-control col-md-4" />
+         <input
           type="text"
+          class="form-control col-md-4"
           v-model="user.surname"
           name="surname"
           placeholder="surname"
         />
-        <input
-          type="text"
-          v-model="user.email"
-          name="email"
-          placeholder="E-mail"
-        />
-
+</div>
         <input
           type="password"
+          class="form-control"
           v-model="user.password"
           name="password"
           placeholder="Password"
         />
-        <input
-          type="password"
-          v-model="user.password2"
-          name="password2"
-          placeholder="Retype password"
-        />
-        <div class="phoneNumber">
-     <select name="countryCode" v-model="user.country_code" id="countryCode">
+     <select  placeholder="country code" name="countryCode" v-model="user.country_code" id="countryCode"  class="form-select"> 
+          <option value="" selected disabled>Country Code</option>
           <option data-countryCode="IQ" value="964" Selected>
             Iraq (+964)
           </option>
@@ -343,22 +339,46 @@
             <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
           </optgroup>
         </select>
-        <input
+
+  </div>
+  <div class="col">
+                        <input
+          type="text"
+          class="form-control"
+          v-model="user.email"
+          name="email"
+          placeholder="E-mail"
+        />
+                <input
+          type="password"
+          class="form-control"
+          v-model="user.password2"
+          name="password2"
+          placeholder="Retype password"
+        />
+             <input
           type="text"
           v-model="user.phone_number"
           name="phone_number"
           placeholder="Phone number"
-          class="phone-number"
+          class="phone-number form-control"
         />
-           </div>
-        <input type="submit" name="signup_submit" value="Sign me up" />
-     
-      </div>
-
-
-
-    </form>
   </div>
+</div>
+</div>
+<div class="btn-class">
+<button type="submit" class="btn btn-primary">Sign up</button>
+    </div>
+    </form>
+
+</div>
+
+
+
+
+
+
+
 </template>
 
 <script>
@@ -400,5 +420,50 @@ export default {
 </script>
 
 <style scoped>
-@import "/./src/assets/css/signupBox.css";
+/* @import "/./src/assets/css/signupBox.css"; */
+
+.btn{ 
+  background-color: #001847 !important;
+  width: 100px;
+}
+
+.btn:hover{ 
+ background-color: #B5C8EC !important; 
+}
+
+.btn:active {
+  background-color: #B5C8EC;
+  color: #001847;
+  border-color:#001847 ;
+  
+
+}
+.btn-class{
+  text-align: center;
+margin-top: 60px;
+}
+h1{
+  text-align: center;
+}
+#signUpBox{
+  display: flex;
+  justify-content: center;
+}
+
+input{
+  margin-top: 20px;
+}
+select{
+  margin-top: 20px;
+}
+
+#signup-box{
+  background-color: #b5c8eca8;
+  display: flex;
+justify-content: center
+}
+
+form{
+  padding: 1%;
+}
 </style>

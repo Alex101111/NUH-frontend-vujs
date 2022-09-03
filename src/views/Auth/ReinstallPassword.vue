@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div id="Password-reset">
     <form @submit.prevent="sendPass">
-      <input type="password" v-model="user.password" /> your new password
-      <input type="password" v-model="user.password2" /> your password Confirmation
-      <input type="submit" />
+         <label for="">your new password : </label>
+      <input type="password" class="form-control" v-model="user.password" /> 
+         <label for=""> your password Confirmation: </label>
+      <input type="password" class="form-control" v-model="user.password2" />
+      <button type="submit" class="btn btn-primary">Change Password</button>
     </form>
   </div>
 </template>
@@ -31,7 +33,7 @@ export default {
             toast(Response.data.error_messages.danger[0])
           }else{
             toast(Response.data[0])
-            console.log(Response.data)
+               this.$router.push({name: 'home'})
           }
         });
     },
@@ -39,5 +41,39 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+#Password-reset {
+  padding-top: 15%;
+  display: flex;
+  justify-content: center;
+height: 50%;
+}
+.btn{
+  margin-top: 10%;
+}
+
+.btn{ 
+  background-color: #001847 !important;
+  width: 100px;
+}
+
+.btn:hover{ 
+ background-color: #B5C8EC !important; 
+}
+
+.btn:active {
+  background-color: #B5C8EC;
+  color: #001847;
+  border-color:#001847 ;
+  
+
+}
+
+@media screen and (max-width: 768px) {
+
+#Password-reset{
+  padding-top: 50%; 
+}
+}
 </style>

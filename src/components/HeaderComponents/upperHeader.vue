@@ -26,17 +26,16 @@
           <Icon
             icon="icon-park-outline:twitter"
             color="white"
-            width="50"
+            width="55"
             class="icon"
           />
         </li>
-        <li class="test">
+        <li>
           <Icon
             icon="bx:user-circle"
             color="white"
-            width="60"
-            height="60"
-            class="icon"
+            width="70"
+            class="icon user-icon"
             @click="isOpen = !isOpen"
             v-show ="!UserIsLogged()"
           />
@@ -175,8 +174,12 @@ margin-top: 16px;
 
   .icon{
     padding: 4px;
-    width: 40px;
+    width: 30px;
 
+  }
+
+  .user-icon{
+    width: 60px;
   }
 
   .media-icons{

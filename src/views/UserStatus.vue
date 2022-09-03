@@ -228,8 +228,7 @@ onMounted (){
 },
 created(){
 
-  console.log('sth')
-  console.log(this.$store.state.status.name)
+
 
 }
 };

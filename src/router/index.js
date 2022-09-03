@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import {isLoggedIn, isAdmin,isTokenExpired,clearAuthToken,isActive } from '@/_helpers/auth'
+import { isLoggedIn, isAdmin, isTokenExpired, clearAuthToken, isActive } from '@/_helpers/auth'
 import HomeView from '../views/HomeView.vue'
 import axios from 'axios'
 import { useToast } from 'vue-toastification'
@@ -8,21 +8,20 @@ import { useToast } from 'vue-toastification'
 
 
 // creating function to set and an auth header at every command that the app makes 
-(function() {
+(function () {
   var token = localStorage.getItem('token')
-console.log('sth')
- if (token ) 
- {
-  
-  if (isTokenExpired(token) ){
-    clearAuthToken()
-  }else{
-     axios.defaults.headers.common['Authorization'] = "Bearer " + token;
- } 
- 
- }else {
-  delete axios.defaults.headers.common['Authorization'] ;
-}
+  console.log('sth')
+  if (token) {
+
+    if (isTokenExpired(token)) {
+      clearAuthToken()
+    } else {
+      axios.defaults.headers.common['Authorization'] = "Bearer " + token;
+    }
+
+  } else {
+    delete axios.defaults.headers.common['Authorization'];
+  }
 
 })();
 
@@ -39,7 +38,8 @@ const routes = [
     path: '/signUp',
     name: 'signUp',
     meta: {
-      allowAnonymous: true
+      allowAnonymous: true,
+      notLogged: true
     },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -50,7 +50,8 @@ const routes = [
     path: '/login',
     name: 'logIn',
     meta: {
-      allowAnonymous: true
+      allowAnonymous: true,
+      notLogged: true
     },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -62,7 +63,6 @@ const routes = [
     name: 'ValidationPage',
     meta: {
       allowAnonymous: true,
-      RequireActive: true
     },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -90,7 +90,7 @@ const routes = [
   {
     path: '/userstatus',
     name: 'userStatus',
-   
+
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -98,7 +98,7 @@ const routes = [
   },
   {
     path: '/admin',
-    name: 'PasswordReset',
+    name: 'adminSpace',
     meta: {
       requiresAuth: true,
       requireAdmin: true
@@ -188,7 +188,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Admin/UserEdit.vue')
   },
 
-  
+
   {
 
     path: '/getquote',
@@ -203,7 +203,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/GetQuote.vue'),
     // beforeEnter(to, from, next) {
-     
+
     //   if (!isLoggedIn()) {
     //     next({
     //       path: '/login',
@@ -233,7 +233,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/ServiceViews/transportComp.vue'),
     // beforeEnter(to, from, next) {
-     
+
     //   if (!isLoggedIn()) {
     //     next({
     //       path: '/login',
@@ -261,7 +261,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/ServiceViews/logisticsComp.vue'),
     // beforeEnter(to, from, next) {
-     
+
     //   if (!isLoggedIn()) {
     //     next({
     //       path: '/login',
@@ -289,7 +289,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Aboutusview.vue'),
     // beforeEnter(to, from, next) {
-     
+
     //   if (!isLoggedIn()) {
     //     next({
     //       path: '/login',
@@ -303,7 +303,7 @@ const routes = [
 
 
   },
-  
+
 
 
   {
@@ -367,6 +367,15 @@ router.beforeEach((to) => {
       path: '/',
       // save the location we were at to come back later
       query: { redirect: to.fullPath },
+    }
+  }
+
+  
+  if (to.meta.notLogged && isLoggedIn()) {
+    return {
+      path: '/',
+      // save the location we were at to come back later
+
     }
   }
 

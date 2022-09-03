@@ -194,7 +194,6 @@ button:active {
 
 }
 
-
 .slogan-container {
   z-index: 7;
   background-color: #c6d5e27c;
