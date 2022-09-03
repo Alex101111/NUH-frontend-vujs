@@ -806,6 +806,7 @@ export default {
               toast(Response.data.error_messages.danger[0]);
             } else {
               toast(Response.data);
+            this.$router.push({name: 'home'})
             }
           })
           .finally(() => {

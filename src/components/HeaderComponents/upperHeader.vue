@@ -1,7 +1,7 @@
 <template>
   <div id="upperHeaderComp">
     <div>
-      <img class="logo-header" src="../../assets/photos/nuhLogo.png" alt="" />
+    <router-link to="/">  <img class="logo-header" src="../../assets/photos/nuhLogo.png" alt="" /></router-link>
     </div>
     <div class="Registeration-nav">
       <ul class="media-icons">
@@ -123,7 +123,7 @@ li {
 .logo-header {
   margin: 10px;
     width: 300px;
-  height: 50px;
+  height: 29px;
 }
 
 .Registeration-nav {
@@ -161,8 +161,8 @@ li {
           height: 10%;
     }
   .logo-header {
-width: 136px;
-height: 40px;
+width: 128px;
+height: 27px;
   }
   ul {
 white-space: nowrap;
