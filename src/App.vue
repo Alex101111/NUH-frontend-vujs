@@ -42,7 +42,6 @@ html, body{
 }
 
 .header{
-  position: fixed;
   z-index: 9;
 width: 100%;
 }

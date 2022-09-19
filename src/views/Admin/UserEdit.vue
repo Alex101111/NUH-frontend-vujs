@@ -169,9 +169,9 @@ export default {
 </script>
 
 <style scoped>
-.mb-5{
+/* .mb-5{
   padding-top: 13%;
-}
+} */
 body {
   background: rgb(99, 39, 120);
 }

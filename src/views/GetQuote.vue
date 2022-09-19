@@ -855,9 +855,9 @@ button:active {
 padding-top: 30vh;
 }
 
-form {
+/* form {
   padding-top: 10%;
-}
+} */
 @media (max-width: 767px) {
   #free-quote {
     padding-top: 40%;

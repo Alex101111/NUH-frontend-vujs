@@ -165,9 +165,9 @@ export default {
 </script>
 
 <style scoped>
-#one-user{
+/* #one-user{
   padding-top: 13%;
-}
+} */
 body {
   background: rgb(99, 39, 120);
 }

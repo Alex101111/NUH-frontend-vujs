@@ -175,9 +175,9 @@ h2 {
   font-size: 20px;
   color: #001847;
 }
-  #logistics{
+  /* #logistics{
     padding-top: 10%;
-  }
+  } */
 
 @media screen and (max-width: 768px) {
   h2 {

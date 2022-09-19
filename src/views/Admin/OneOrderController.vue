@@ -300,9 +300,9 @@ export default {
 <style scoped>
 
 
-#one-order{
+/* #one-order{
   padding-top: 13%;
-}
+} */
 body {
   background: rgb(99, 39, 120);
 }

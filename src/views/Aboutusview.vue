@@ -70,9 +70,9 @@ ContactForm
     flex-direction: row-reverse;
 }
 
-#about-us{
+/* #about-us{
   padding-top: 10%;
-}
+} */
 
 h2{
   text-align: center;

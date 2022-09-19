@@ -172,9 +172,9 @@ h2 {
   font-size: 20px;
   color: #001847;
 }
-  #transport{
+  /* #transport{
     padding-top: 10%;
-  }
+  } */
 @media screen and (max-width: 768px) {
   h2 {
     padding: 50px;

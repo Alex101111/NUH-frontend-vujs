@@ -38,7 +38,7 @@
             </button>
           </div>
           <div class="login_message">
-            <p>Don&rsquo;t have an account ? <a href="#"> Sign up </a></p>
+            <p>Don&rsquo;t have an account ? <a href="/signUp"> Sign up </a></p>
           </div>
         </div>
       </form>

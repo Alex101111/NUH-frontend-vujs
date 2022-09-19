@@ -1,4 +1,5 @@
 <template>
+<div>  
     <img src="../../assets/photos/Nuh-card.jpg" alt="">
 
   <div id = "admin-dash">
@@ -13,6 +14,8 @@
 <router-link  to="/admin/user-controller"><button type="button" class="btn btn-success">Access</button> </router-link>
 </div>
   </div>
+  </div>
+
 </template>
 
 <script>
